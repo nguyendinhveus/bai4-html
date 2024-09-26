@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Đăng Nhập</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .password-container {
+            position: relative;
+        }
+
+        .password-container input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <a href="#" class="back-link">&lt; Quay lại Trang chủ</a>
+            <h1>Đăng nhập</h1>
+            <form>
+                <label for="email">Email đăng nhập</label>
+                <input type="email" id="email" name="email" placeholder="Vui lòng nhập email">
+
+                <label for="password">Mật khẩu</label>
+                <div class="password-container">
+                    <input type="password" id="password" name="password" placeholder="Vui lòng nhập mật khẩu">
+                </div>
+
+                <a href="#" class="forgot-password">Quên mật khẩu</a>
+
+                <button type="submit" class="login-btn">Đăng nhập</button>
+                <p class="register-link">Bạn chưa có tài khoản <a href="#">Đăng ký</a></p>
+            </form>
+        </div>
+
+        <div class="right-panel">
+            <img src="V2---CMCUNIVERSITY-logo5-png.png" alt="Logo Trường" class="promo-img">
+        </div>
+    </div>
+
+    <script>
+        const form = document.querySelector('form');
+        const emailField = document.getElementById('email');
+        const passwordField = document.getElementById('password');
+
+        form.addEventListener('submit', function (event) {
+            const emailValue = emailField.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const passwordValue = passwordField.value;
+
+            if (emailValue.trim() === "") {
+                alert('Email không được để trống.');
+                event.preventDefault(); 
+                return; 
+            }
+            if (!emailRegex.test(emailValue)) {
+                alert('Vui lòng nhập một địa chỉ email hợp lệ.');
+                event.preventDefault();
+                return;
+            }
+
+            if (passwordValue.trim() === "") {
+                alert('Mật khẩu không được để trống.');
+                event.preventDefault();
+                return; 
+            }
+
+            alert('Đăng nhập thành công!');
+        });
+    </script>
+</body>
+</html>
